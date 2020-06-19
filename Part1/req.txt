@@ -1,0 +1,236 @@
+При создании нового проекта
+
+
+1.Create Virtual enviroment
+1.1 python3 -m venv _____(venv) -> python3 -m venv venv
+1.2 windows -> venv\scripts\activate
+    mac -> source venv/bin/activate
+    Check:(venv) MacBook-1:
+
+
+2.Install libraries
+2.1 pip install django
+    django - это библиотека которая позволяет построить основу веб приложения
+    djangorestframework
+    djangophonenumbers
+    Check:Successfully installed asgiref-3.2.10 django-3.0.7 pytz-2020.1 sqlparse-0.3.1
+3.Создание проекта django
+3.1 django-admin startproject _____(mysite)-> django-admin startproject mysite .
+    после этой команды у нас создается папка которая называетс mysite и в ней находятся файлы необходимые для
+    конфигураии и для подключения к базе данных и для того чтобы настроить маршруты
+    settings.py -> файл в котором содержатся настройки по веб приложению
+        DEBUG-True -> все изменения все запросы и ответы которые принимаает  или отдает ваше приложения показываютс
+                    в командной строке
+
+        ALLOWED_HOSTS -> это массив в котором хранятся адреса веб сайтов которые имеют доступ к нашему прложению и могут
+        посылать туда запросы и получать соответсвующие ответы
+
+        INSTALLED_APPS ->  это массив в котором хранятся название папок(библиотеки) которые необходимо подключать когда мы только запускаем
+        наш проект.
+            django.contrib.admin -> это библиотека в которой содержится сущность Admin эта сущность основа на User
+            acl - >account control library
+            User -> pk,first_name,last_name,username,password,email,
+            Admin = User + acl -> контролирует все сущности(model,таблица) которые создаются в файлах modesl.py
+
+            'django.contrib.auth' -> это библиотека в которой содержится все правила и законы которые нужно соблюдать во время
+                авторизации и проверка подлинности сущности User
+            User - >username->kirito
+                    password ->kirito
+            Token -> csrf_token
+
+            'django.contrib.staticfiles', -> эта библиотека в которой содержится инстурменты для поклюения стилей(css),различных
+            сторонних ресурсов на ваше веб приложение например картинки,doc,pdf
+
+            MIDDLEWARE  == service
+            http_endpoints -> service -> store -> struct
+            Есть кнопка регистрации на веб сайте
+            http_endpoint -> Register
+            service -> CheckRegisterData
+            store -> AddUser
+            struct -> User
+
+            struct->user
+            class User
+                    --username
+                    --password
+
+            store->AddUser
+            реализуются методы по отправке,изменению,удалени,получению данных из Базы данных постгре
+            AddUser->insert into
+
+            service->CheckRegisterData
+            у нас идет проверка на правильность данных на проверка на то вто было поля не были пустыми чтобы
+            не содежрали лишние символы
+
+            http_endpoint -> Register
+            Register - > это метод который получается данные о пользователя при запросе или при нажатии кнопки
+
+
+http_endpoint -> service -> store-> Database
+
+
+Маршрутизатор -> это получается конфигурации или опции в которых хранится информация о тех путях которые возможны на сайте
+urls.py
+
+knewit.kz
+Сайт                   Маршрутизатора
+    регистрация        knewit.kz/register
+    авторизация        knewit.kz/login
+    главная страница   knewit.kz
+    о нас              knewit.kz/about
+    контакты           knewit.kz/contacts
+
+
+host -> knewit.kz
+
+наш хост 127.0.0.1
+
+templates - > шаблоны
+
+Главная страница ->
+                    меню
+                    контент
+                    footer
+
+авторизации ->
+                    меню
+                    форма авторизаии
+                    footer
+регистрация ->
+                     меню
+                    форма  регистрация
+                    footer
+
+base.html ->
+            main.html
+            login.html
+            register.html
+            about.html
+
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}
+ENGINE -> это название субд(система управления базами данных котоыре вы используете
+         mysql
+        postgre
+        mongodb
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'postgre',
+        'HOST':'localhost',
+        'USER':'postgres',
+        'PASSWORD':'postgres',
+        'DATABASE':'database_name',
+    }
+}
+
+
+LANGUAGE_CODE = "en-us"
+"ru-ru"
+
+4. Сделать первичные миграции
+Миграция -> это технология которая позволяет первести класс или структуру с любого языка программирования в любой язык для базы данных
+python -> sql
+php ->sql
+java ->sql,mysql,postgresql,
+
+PYTHON CODE  class
+class Product:
+    def __init__(self,name,price):
+        self.name = name
+        self.price = price
+
+Миграция
+
+create table product (
+    pk int primary key,
+    name varchar,
+    price int
+)
+pk,name,price
+1,hleb,1000
+2,okun,3000
+
+
+python3 manage.py migrate - > загружает данные из папок migrations в базу данных
+
+
+1 -> IntegerField,DoubleField,NumberField
+
+python3 manage.py makemigrations - > на основе новых классов сущностой создает папку  migrations в которой хранится описаний
+ваших классов  а именно названий,типо полей
+
+
+models.Model ->
+migrate ->
+
+Создание и добавление собстенной модели в базу данных и получения к ней доступа со стороны админа
+
+
+models.Model - > это класс который дает доступ к таким методам как save(),  objects
+p1 = Product(name="sdsdds",price=1000)
+p1.save()
+
+
+Product.objects.all()->select * from Product
+Product.objects.get(pk=1)-> select * from Product where pk = 1
+Product.objects.filter(name='Yerassyl') -> select * from product where name='Yerassyl'
+
+
+models.CharField(max_length=255) - > это класс который обозначает что объект который вызывает этот класс для sql -> varchar
+
+
+
+1)python3 manage.py makemigrations
+2)python3 manage.py migrate
+
+
+6.CREATE SUPER USER(admin)
+python3 manage.py createsuperuser
+
+    Username (leave blank to use '4eenah'): admin
+    Email address: admin@gmail.com
+    Password:
+    Password (again):
+    The password is too similar to the username.
+    This password is too short. It must contain at least 8 characters.
+    This password is too common.
+    Bypass password validation and create user anyway? [y/N]: y
+    Superuser created successfully.
+
+
+models.py - > файл в котором хранится все сущности которые после миграций превращюатся в таблтцы нашего приложения
+admin.py - > файл в котором мы подключаем сушности из наших модолей для их отображения в странице админа
+
+
+КАК создать проект на django первый раз
+DjangoProject
+---------------venv
+---------------mysite
+---------------------admin.py
+---------------manage.py
+
+python3 -m venv venv
+venv\scripts\activate
+pip install django
+django-admin startproject mysite .
+python3 manage.py migrate
+python3 manage.py createsuperuser
+python3 manage.py runserver
+
+
+Как запускать снова проект на след день
+
+....DjangoProject>dir
+---------------venv
+---------------mysite
+---------------------admin.py
+---------------manage.py
+
+venv\scripts\activate
+python3 manage.py runserver
