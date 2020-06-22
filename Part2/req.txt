@@ -7,3 +7,29 @@ python manage.py createsuperuser
 username:admin
 password:admin
 python manage.py runserver
+
+code convention -> правила написания кода
+
+главная страница main_page
+контакты contact_page
+о нас about_us_page
+
+
+1)create views.py
+2)create urls.py
+3)admin.py
+4)models.py
+
+1.
+VIEW -> component который получает данные из базы данных и отправляет их пользователю
+представление какой то страницы на веб сайте со стороны backend(python)
+
+
+PC,phone  <-> knewit.kz <-> front-end<->back-end<->database
+
+
+2.
+
+127.0.0.1 -> main_page
+127.0.0.1/contacts/ -> contact_page
+127.0.0.1/aboutus/ -> about_us_page
