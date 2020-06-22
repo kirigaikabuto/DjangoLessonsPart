@@ -3,8 +3,13 @@ from django.shortcuts import render
 
 
 def main_page(request):
-    print("it is main page")
-    return render(request, "main/main_page.html")
+    a = "Hello it python"
+    array = [1, 2, 3, 4, 5]
+    d = {
+        "message": a,
+        "lists": array,
+    }
+    return render(request, "main/main_page.html",context=d)
 
 
 def contacts_page(request):
