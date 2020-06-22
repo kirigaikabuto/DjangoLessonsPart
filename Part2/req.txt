@@ -38,3 +38,32 @@ PC,phone  <-> knewit.kz <-> front-end<->back-end<->database
 
 python3 manage.py makemigrations mysite
 python3 manage.py migrate
+
+__init__.py
+
+
+
+
+[HW]
+1)создать проект core
+2)
+127.0.0.1:8000 -> main_page
+3)views.py html
+|Name   |Surname| Age| Average Mark|
+Yerassyl Tleugazy 22        3
+[
+    {
+        "name:"Yerassyl",
+        "surname:"Tleugazy",
+        "age":22,
+        "marks":[1,2,3,4,5],
+    },
+    ...
+]
+4)Create Model
+Profile
+    phoneNumber CharField 255
+    dateOfBirth DateField default
+
+    django models DateField
+
