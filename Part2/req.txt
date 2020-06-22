@@ -1,0 +1,9 @@
+python -m venv venv
+venv\scripts\activate
+pip install django
+django-admin startproject mysite .
+python manage.py migrate
+python manage.py createsuperuser
+username:admin
+password:admin
+python manage.py runserver
