@@ -33,3 +33,8 @@ PC,phone  <-> knewit.kz <-> front-end<->back-end<->database
 127.0.0.1 -> main_page
 127.0.0.1/contacts/ -> contact_page
 127.0.0.1/aboutus/ -> about_us_page
+
+
+
+python3 manage.py makemigrations mysite
+python3 manage.py migrate

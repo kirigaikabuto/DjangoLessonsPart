@@ -7,9 +7,10 @@ def main_page(request):
     array = [1, 2, 3, 4, 5]
     d = {
         "message": a,
-        "lists": array,
+        "array": array,
+        "name" : "Yerassyl",
     }
-    return render(request, "main/main_page.html",context=d)
+    return render(request, "main/main_page.html", context=d)
 
 
 def contacts_page(request):
