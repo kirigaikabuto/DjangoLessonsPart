@@ -51,6 +51,10 @@ __init__.py
 3)views.py html
 |Name   |Surname| Age| Average Mark|
 Yerassyl Tleugazy 22        3
+
+
+
+
 [
     {
         "name:"Yerassyl",
