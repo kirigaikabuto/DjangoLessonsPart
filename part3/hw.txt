@@ -1,0 +1,15 @@
+1)Model Client
+Client
+    -name      varchar
+    -balance   int
+    -rating    double
+
+127.0.0.1/clients/all/
+127.0.0.1/clients/detail/1/
+
+
+
+Client.objects.all().filter() <-
+__lte -
+__gte -
+__contains -

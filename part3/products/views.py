@@ -3,6 +3,8 @@ from .models import *
 
 
 def list_products(request):
+    # p1 = Product(name="yerassyl",description="",price=100)
+    # p1.save()
     products = Product.objects.all()
     d = {
         "products": products
