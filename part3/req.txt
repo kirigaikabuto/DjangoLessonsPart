@@ -28,4 +28,4 @@ python manage.py runserver
 
 6)
 127.0.0.1/products/all/
-127.0.0.1/products/detail/1/
+127.0.0.1/products/detail//
