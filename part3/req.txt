@@ -1,9 +1,14 @@
+Нам необходимо вывести список товаров из базы данных и сделать что то детализация
+
 0)create venv
 1)create project mysite
 2)create app products
 3)migration and create super user
 4)connect app in settings.py
 5)run app
+6)проектирование веб сайта
+
+
 
 0)
 python -m venv venv
@@ -20,3 +25,7 @@ python manage.py createsuperuser
 
 5)
 python manage.py runserver
+
+6)
+127.0.0.1/products/all/
+127.0.0.1/products/detail/1/
