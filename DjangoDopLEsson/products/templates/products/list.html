@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{{message}}
+<br>
+{{arr}}
+<br>
+{%for i in arr%}
+
+<p>Hello {{i}}</p>
+
+{%endfor%}
+<p>End</p>
+
+
+
+<h1>Product class Example</h1>
+{{product}}
+<br>
+{{product.name}}
+<br>
+{{product.price}}
+<br>
+{{product.description}}
+
+
+<h1>Prooducts list</h1>
+{%for i in products%}
+<br>
+{{i.name}}
+<br>
+{{i.price}}
+<br>
+{{i.description}}
+<br>
+{%endfor%}
+
+
+<h1>Filtered Prooducts list</h1>
+{%for i in filtered_products%}
+<br>
+{{i.name}}
+<br>
+{{i.price}}
+<br>
+{{i.description}}
+<br>
+{%endfor%}
+
+
+
+</body>
+</html>

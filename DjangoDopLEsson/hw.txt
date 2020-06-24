@@ -1,0 +1,11 @@
+client
+    name
+    surname
+    balance
+    salary
+
+create app clients
+127.0.0.1/clients/all
+1)добавить 3 клиентов
+2)вывести тех клиегтов у которых salary>1000
+3)вывести тех клиентов у которых balance между 100 - 1000
