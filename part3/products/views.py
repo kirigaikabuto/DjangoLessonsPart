@@ -3,7 +3,6 @@ from .models import *
 
 
 def list_products(request):
-
     return render(request, "products/list_page.html")
 
 
