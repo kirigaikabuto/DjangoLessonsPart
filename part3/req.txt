@@ -6,9 +6,8 @@
 3)migration and create super user
 4)connect app in settings.py
 5)run app
-6)проектирование веб сайта
-
-
+6)проектирование маршрутов
+7)создание модели и миграции и доабавление в админ панель
 
 0)
 python -m venv venv
@@ -29,3 +28,8 @@ python manage.py runserver
 6)
 127.0.0.1/products/all/
 127.0.0.1/products/detail//
+
+7)
+name varchar     CharField
+price int        IntegerField
+description text TextField
