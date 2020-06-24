@@ -3,7 +3,11 @@ from .models import *
 
 
 def list_products(request):
-    return render(request, "products/list_page.html")
+    products = Product.objects.all()
+    d = {
+        "products": products
+    }
+    return render(request, "products/list_page.html", context=d)
 
 
 def detail(request, name):

@@ -5,11 +5,13 @@
     <title>Detail</title>
 </head>
 <body>
+<a href="{% url 'all' %}">Главная страница</a>
+<br>
 {{product.pk}}
 {{product.name}}
 {{product.description}}
 {{product.price}}
 
-<a href="{% url 'all' %}">Главная страница</a>
+
 </body>
 </html>
