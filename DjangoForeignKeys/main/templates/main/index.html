@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Main Page</title>
+</head>
+<body>
+
+
+<h1>Books List</h1>
+
+<form method="post">
+    {%csrf_token%}
+    <input type="text" name="search_value">
+    <input type="submit" value="Search">
+</form>
+
+{%for i in books%}
+<br>
+    <p>Name:{{i.name}}</p>
+    <p>Janre:{{i.janre.name}}</p>
+{%endfor%}
+</body>
+</html>

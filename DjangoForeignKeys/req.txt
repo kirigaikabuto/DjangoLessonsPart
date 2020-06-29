@@ -1,0 +1,11 @@
+pip install django
+[mac]
+pip install psycopg2-binary
+[windows]
+pip install psycopg2
+python3 manage.py startapp books
+python3 manage.py startapp janre
+
+
+b = Model.Create(...)
+b.save()

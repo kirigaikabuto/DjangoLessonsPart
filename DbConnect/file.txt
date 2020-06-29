@@ -1,0 +1,20 @@
+# pip install mysql-connector
+# pip install mysql-client
+#
+python -m venv myvenv
+myvenv\scripts\activate
+pip install psycopg2
+
+
+
+# -- create table products (
+# -- 	id int primary key,
+# -- 	name varchar(25),
+# -- 	age int
+# -- );
+
+#host = "localhost"
+#port = 5432
+#user = "postgres"
+#password = "..."
+#dbname = "..."

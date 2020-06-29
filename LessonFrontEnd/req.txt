@@ -1,0 +1,15 @@
+python -m venv venv
+venv\scripts\activate
+pip install django
+
+django-admin startproject core .
+python manage.py migrate
+python manage.py createsuperuser
+python manage.py startapp main
+
+
+Page
+
+title ->varchar
+body  ->text
+content ->text
