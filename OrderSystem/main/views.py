@@ -2,7 +2,11 @@ from django.shortcuts import render
 from django.contrib.auth.models import User
 
 
-def home(request):
+def main_page(request):
+    return render(request, "main/home.html")
+
+
+def register_page(request):
     error = ""
     if request.method == "POST":
         first_name = request.POST['first_name']
@@ -28,4 +32,4 @@ def home(request):
         "error": error
     }
 
-    return render(request, "main/home.html", context=d)
+    return render(request, "main/register.html", context=d)
