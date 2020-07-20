@@ -8,9 +8,11 @@
 {%if request.user.is_authenticated%}
 <p>{{request.user.username}}</p>
 <br>
-<a href="{%url 'logout'%}"></a>
+<a href="{%url 'logout'%}">logout</a>
+<a href="{%url 'profile_page'%}">Profile</a>
 {%else%}
 <a href="{%url 'login_page' %}">Login</a>
+
 <br>
 <a href="{%url 'register_page'%}">Register</a>
 {%endif%}

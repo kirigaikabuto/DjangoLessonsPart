@@ -4,13 +4,20 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 
 
-def main_panel(request):
+def profile_page(request):
     user = request.user
-    profile = Profile.objects.get(user = user)
+    profile = Profile.objects.get(user=user)
+    if request.method == "POST":
+        address = request.POST['address']
+        salary = int(request.POST['salary'])
+        profile.salary = salary
+        profile.address = address
+        profile.save()
+        return redirect("profile_page")
     d = {
         "profile": profile
     }
-    return render(request, "userprofile/main_panel.html", context=d)
+    return render(request, "userprofile/profile.html", context=d)
 
 
 def log_out(request):
@@ -36,7 +43,7 @@ def login_page(request):
                 error = "нет такого пользователя"
             else:
                 login(request, user)
-                return redirect("main_panel")
+                return redirect("home_page")
     d = {
         "error": error
     }
