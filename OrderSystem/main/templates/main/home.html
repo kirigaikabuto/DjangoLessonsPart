@@ -8,6 +8,24 @@
     <title>Document</title>
 </head>
 <body>
-Main page
+{{request.user}}
+{%if request.user.is_authenticated%}
+<a href="logout">Logout</a>
+{%else%}
+<a href="{%url 'login_page'%}">Login</a>
+<a href="{%url 'register_page'%}">Register</a>
+{%endif%}
+
+<h1>Products</h1>
+<hr>
+
+{%for i in products%}
+
+<p>{{i.name}}</p>
+<a href="{% url 'do_order' id_product=i.pk %}">Купить</a>
+<br>
+
+{%endfor%}
+
 </body>
 </html>

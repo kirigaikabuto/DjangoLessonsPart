@@ -1,10 +1,27 @@
 <!DOCTYPE html>
+{%load static%}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title></title>
 </head>
+
 <body>
+<input type="text" id="txt1">
+<input type="text" id="txt2">
+<input type="text" id="txt3">
+<button id="plus">+</button>
+
+<button id="minus">-</button>
+
+<button id="div">/</button>
+
+<button id="multiple">*</button>
+
+<button id="equal">=</button>
+
+<p id="answer">Ответ:</p>
 
 </body>
+<script src ="{% static 'products/js/main.js' %}"></script>
 </html>
