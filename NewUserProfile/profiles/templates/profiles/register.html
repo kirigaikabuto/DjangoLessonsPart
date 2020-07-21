@@ -2,9 +2,26 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Title</title>
 </head>
 <body>
-$END$
+
+<form method="post">
+    {%csrf_token%}
+    <input type="text" name="username" placeholder="username">
+    <br>
+    <input type="password" name="password" placeholder="password">
+    <br>
+    <input type="text" name="address" placeholder="address">
+    <br>
+    <input type="text" name="salary" placeholder="salary">
+    <br>
+    <select name="department_id">
+        {%for i in departments%}
+        <option value="{{i.pk}}">{{i.name}}</option>
+        {%endfor%}
+    </select>
+    <input type="submit" value="Register">
+</form>
 </body>
 </html>

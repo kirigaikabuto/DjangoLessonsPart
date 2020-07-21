@@ -2,9 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Main </title>
 </head>
 <body>
-$END$
+{%if request.user.is_authenticated%}
+Пользователь :{{request.user.username}}
+<a href="{%url 'user_logout' %}">Logout</a>
+{%else%}
+<a href="{%url 'login_page'%}">Login</a>
+<a href="{%url 'register_page'%}">Register</a>
+{%endif%}
 </body>
 </html>
