@@ -2,20 +2,40 @@ from django.shortcuts import render, redirect
 from .models import *
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
+from products.models import  *
+from orders.models import *
 
 
 def profile_page(request):
-    return render(request, "profiles/profile.html")
+    user = request.user
+    profile = Profile.objects.get(user=user)
+    if request.method == "POST":
+        address = request.POST['address']
+        salary = request.POST['salary']
+        profile.address = address
+        profile.salary = salary
+        profile.save()
+        return redirect("profile_page")
+
+    orders = Order.objects.all().filter(user = user)
+    d = {
+        "profile": profile,
+        "orders": orders,
+    }
+    return render(request, "profiles/profile.html", context=d)
 
 
 def main_page(request):
-    return render(request, "profiles/main.html")
+    products = Product.objects.all()
+    d = {
+        "products":products
+    }
+    return render(request, "profiles/main.html", context=d)
 
 
 def user_logout(request):
     logout(request)
     return redirect("main_page")
-
 
 
 def login_page(request):
@@ -63,7 +83,6 @@ def register_page(request):
                           address=address, salary=salary)
         profile.save()
         return redirect("login_page")
-
 
     departments = Department.objects.all()
     d = {

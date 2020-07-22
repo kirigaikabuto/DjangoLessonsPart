@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Detail</title>
+</head>
+<body>
+
+<p>Name:{{product.name}}</p>
+<p>Description:{{product.description}}</p>
+<p>Price:{{product.price}}</p>
+<p>Quantity:{{product.quantity}}</p>
+
+{%if request.user.is_authenticated%}
+    <form method="POST" action="{%url 'order_action'%}">
+        <input type="hidden" name="product_id" value="{{product.pk}}">
+        <input type="text" name="quantity">
+        <input type="submit" value="Заказать">
+    </form>
+{%else%}
+    <a href="{%url 'login_page' %}">Чтобы сделать заказ необходимо авторизоваться</a>
+{%endif%}
+
+</body>
+</html>

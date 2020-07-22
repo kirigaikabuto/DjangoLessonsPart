@@ -5,6 +5,16 @@
     <title>Profile</title>
 </head>
 <body>
-это профиль пользователя
+<h1>User Profile</h1>
+<form method="post">
+    {%csrf_token%}
+    <p>Username:{{profile.user.username}}</p>
+    <p>Department:{{profile.department}}</p>
+<input type="text" name="address" value="{{profile.address}}">
+    <br>
+<input type="text" name="salary" value="{{profile.salary}}">
+    <br>
+<input type="submit" value="Change">
+</form>
 </body>
 </html>

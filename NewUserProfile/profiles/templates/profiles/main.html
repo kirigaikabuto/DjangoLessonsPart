@@ -14,5 +14,14 @@
 <a href="{%url 'login_page'%}">Login</a>
 <a href="{%url 'register_page'%}">Register</a>
 {%endif%}
+<hr>
+
+<h2>Product List</h2>
+{%for i in products%}
+<p>{{i.name}}</p>
+<p>{{i.price}}</p>
+<a href="{%url 'product_detail_page' id=i.pk%}">Подробнее</a>
+<br>
+{%endfor%}
 </body>
 </html>
