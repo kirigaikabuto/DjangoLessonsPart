@@ -1,7 +1,8 @@
 from producer_library import *
 
 d = {
-    "name": "adsasadsd",
+    "first_name": "Yerassyl",
+    "last_name" : "Tleugazy",
     "age": 512
 }
 send_log(d)
