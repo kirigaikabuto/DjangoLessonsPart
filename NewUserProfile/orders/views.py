@@ -1,9 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import render,HttpResponse
+from .models import *
 
-# Create your views here.
+
 def order(request):
     product_id = request.POST['product_id']
-    quantuty = request.POST['quantity']
+    quantity = request.POST['quantity']
     product = Product.objects.get(pk=product_id)
-    if product.quantity<quantuty:
-        return HttpRessponse("Унас нет такого колво")
+    if product.quantity<quantity:
+        return HttpResponse("Унас нет такого колво")
