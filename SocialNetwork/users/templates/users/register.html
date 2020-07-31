@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Register</h1>
+
+<img src="../media/{{profile.photo}}" width="200" height="200">
+
+
+
+<form method="post" enctype="multipart/form-data">
+    {%csrf_token%}
+    {% for field in user_form%}
+    <p>{{field.label_tag}}</p>
+
+    {{field}}
+    {%endfor%}
+
+    {% for field in profile_form%}
+    <p>{{field.label_tag}}</p>
+
+    {{field}}
+    {%endfor%}
+    <br>
+ <input type="submit" value="Register">
+</form>
+
+</body>
+</html>
