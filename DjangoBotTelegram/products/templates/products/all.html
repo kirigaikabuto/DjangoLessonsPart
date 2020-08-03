@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Page for print all products</title>
+</head>
+<body>
+<h1>All products</h1>
+{{product_name}}
+{{price}}
+
+{% if price == 200 %}
+ <p>Price is equal 200</p>
+
+{%else%}
+<p>price is not equal to 200</p>
+
+{% endif %}
+
+</body>
+</html>

@@ -1,0 +1,18 @@
+
+
+
+django-admin -> некий bat файл который создает оснополащающие части проекта
+starprtoject -> это команда которая создает основную папку приложения где будут лежать конфигурации подключени к бд
+mysite -> это название папки
+cmd:pip install django
+cmd:django-admin startproject mysite .
+cmd:python manage.py migrate  -> добавляет в базу все сущности для работы с django
+cmd:python manage.py createsuperuser -> создает админа для базы данных
+cmd:python manage.py runserver
+cmd:python manage.py startapp products
+
+список продуктов на главной странице
+одна страница
+/products/all/
+/products/1/
+/products/2/
