@@ -11,5 +11,8 @@ def products_all(request):
 
 
 def product_detail(request):
-    return render(request, "products/detail.html")
+    d = {
+        "product_detail":"123211"
+    }
+    return render(request, "products/detail.html", context=d)
     # return HttpResponse("it is page for product detail")
